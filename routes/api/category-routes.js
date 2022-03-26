@@ -49,11 +49,12 @@ router.put('/:id', async (req, res) => {
   try {
     const categoryData = await Category.update(
       {
+        id: req.body.id,
         category_name: req.body.category_name,
       },
       {
         where: {
-          category_name: req.params.category_name,
+          id: req.params.id,
         },
       });
 
@@ -70,7 +71,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // T*ODO delete a category by its `id` value
   try {
-    const tagData = await Tag.destroy({
+    const categoryData = await Category.destroy({
       where: {
         id: req.params.id
       }
@@ -80,7 +81,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: "No category with this id."})
       return;
     }
-    res.status(200).json(tagData);
+    res.status(200).json(categoryData);
   } catch (err) {
     res.status(500).json(err);
   }

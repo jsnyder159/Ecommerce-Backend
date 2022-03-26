@@ -14,13 +14,13 @@ Category.hasMany(Product, {
   onDelete: 'CASCADE',
 });
 // T*ODO Products belongToMany Tags (through ProductTag)
-Product.belongToMany(Tag, {
+Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
   }
 });
 // T*ODO Tags belongToMany Products (through ProductTag)
-Tag.belongToMany(Product, {
+Tag.belongsToMany(Product, {
   through: {
     model: ProductTag,
   }
