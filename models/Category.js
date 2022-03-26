@@ -6,7 +6,6 @@ class Category extends Model {}
 
 Category.init(
   {
-    // T*ODO define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,

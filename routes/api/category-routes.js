@@ -4,8 +4,6 @@ const { Category, Product, Tag } = require('../../models');
 // The `/api/categories` endpoint
 
 router.get('/', async (req, res) => {
-  // T*ODO find all categories
-  // be sure to include its associated Products
   try {
     const categoryData = await Category.findAll({
       include: [{model: Product}],
@@ -17,8 +15,6 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  // T*ODO find one category by its `id` value
-  // be sure to include its associated Products
   try {
     const categoryData = await Category.findByPk(req.params.id, {
       include: [{ model: Product}]
@@ -35,7 +31,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // T*ODO create a new category
   try {
     const categoryData = await Category.create(req.body);
     res.status(200).json(categoryData);
@@ -45,7 +40,6 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  // T*ODO update a category by its `id` value
   try {
     const categoryData = await Category.update(
       {
@@ -69,7 +63,6 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  // T*ODO delete a category by its `id` value
   try {
     const categoryData = await Category.destroy({
       where: {
